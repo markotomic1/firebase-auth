@@ -1,5 +1,6 @@
 import "./widget.scss";
 import ArrowDropUpOutlinedIcon from "@mui/icons-material/ArrowDropUpOutlined";
+import { ArrowDropDown } from "@mui/icons-material";
 import PersonIcon from "@mui/icons-material/Person";
 import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
@@ -118,8 +119,8 @@ const Widget = ({ type }) => {
         <span className='link'>{data?.link}</span>
       </div>
       <div className='right'>
-        <div className='percentage positive'>
-          <ArrowDropUpOutlinedIcon />
+        <div className={`percentage ${diff < 0 ? "negative" : "positive"}`}>
+          {diff < 0 ? <ArrowDropDown /> : <ArrowDropUpOutlinedIcon />}
           {diff}%
         </div>
         {data.icon}
